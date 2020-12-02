@@ -1,0 +1,13 @@
+
+.cardinal-logo{
+  height: 50px;
+  margin-top: 46px;
+}
+
+
+@media (max-width: 999px){
+  .navbar-wrapper{
+        margin-top: -53px !important;
+  }
+}
+

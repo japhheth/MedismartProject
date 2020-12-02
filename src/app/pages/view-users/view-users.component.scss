@@ -1,0 +1,36 @@
+table {
+  width: 100%;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+.hide{
+  display: none;
+}
+
+mat-footer-row mat-footer-cell {
+  justify-content: center;
+  font-style: italic;
+}
+
+.clear-btn {
+  cursor: pointer;
+}
+
+.search-div {
+  background: #fff;
+  margin-bottom: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+@media (max-width: 767px) {
+  .search-div {
+    justify-content: unset;
+    flex-direction: column;
+  }
+}

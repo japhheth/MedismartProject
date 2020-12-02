@@ -1,0 +1,145 @@
+
+
+<div class="content">
+  <div class="container form-wrapper">
+       <div class="toolbar-div">
+        <mat-toolbar class="toolbar-flex">
+          <span>{{authService.userForm.controls['itbid'].value !== ''? 'Modify Record' : 'New Record' }}</span>
+          <mat-icon class="clear-btn" matSuffix aria-label="close" (click)="onClose()">close</mat-icon>
+      </mat-toolbar>
+     </div>
+      <form class="form row" #registerForm="ngForm" [formGroup]="authService.userForm">
+            <div class="col-md-6">
+
+                <div class="form-group input-form">
+                    <mat-form-field appearance="fill" class="field-form">
+                        <mat-label>First Name</mat-label>
+                        <input matInput
+                               type="text"
+                               formControlName="FirstName"
+                               class="form-control"
+                               required>
+                               <mat-error class="help-block" *ngIf="!authService.userForm.get('FirstName').valid && authService.userForm.get('FirstName').touched">Blank First Name</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-group input-form">
+                    <mat-form-field appearance="fill" class="field-form">
+                        <mat-label>Other Names</mat-label>
+                        <input matInput
+                               type="text"
+                               formControlName="OtherName"
+                               class="form-control"
+                               placeholder="Other Names"
+                               required>
+                               <mat-error class="help-block" *ngIf="!authService.userForm.get('OtherName').valid && authService.userForm.get('OtherName').touched">Blank field</mat-error>
+                    </mat-form-field>
+                </div>
+                  <div class="form-group input-form">
+                    <mat-form-field appearance="fill" class="field-form">
+                        <mat-label>Address</mat-label>
+                        <input matInput
+                               type="text"
+                               formControlName="Address"
+                               class="form-control"
+                               placeholder="Other Names"
+                               required>
+                               <mat-error class="help-block" *ngIf="!authService.userForm.get('Address').valid && authService.userForm.get('Address').touched">Blank field</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-group input-form">
+                    <mat-form-field appearance="fill" class="field-form">
+                        <mat-label>Phone Number</mat-label>
+                        <input matInput
+                               type="tel"
+                               formControlName="PhoneNumber"
+                               class="form-control"
+                               placeholder="Phone Number"
+                               (keypress)="onKeyUp($event)"
+                               required>
+                               <mat-error class="help-block" *ngIf="!authService.userForm.get('PhoneNumber').valid && authService.userForm.get('PhoneNumber').touched">Blank field</mat-error>
+                    </mat-form-field>
+                </div>
+                   <div class="form-group input-form">
+                    <mat-form-field appearance="fill" class="field-form">
+                        <mat-label> Next OF Kin</mat-label>
+                        <input matInput
+                               type="text"
+                               formControlName="Next_Of_Kin"
+                               class="form-control"
+                               placeholder="Next of Kin"
+                               required>
+                               <mat-error class="help-block" *ngIf="!authService.userForm.get('Next_Of_Kin').valid && authService.userForm.get('Next_Of_Kin').touched">Blank field</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group input-form">
+                    <mat-form-field appearance="fill" class="field-form">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput
+                               type="text"
+                               formControlName="LastName"
+                               class="form-control"
+                               required>
+                               <mat-error class="help-block" *ngIf="!authService.userForm.get('LastName').valid && authService.userForm.get('LastName').touched">Blank First Name</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-group input-form">
+                    <mat-form-field appearance="fill" class="field-form">
+                        <mat-label>Maiden Name</mat-label>
+                        <input matInput
+                               type="text"
+                               formControlName="MaidenName"
+                               class="form-control"
+                               required>
+                               <mat-error class="help-block" *ngIf="!authService.userForm.get('MaidenName').valid && authService.userForm.get('MaidenName').touched">Blank Maiden Name</mat-error>
+                    </mat-form-field>
+                </div>
+
+
+                <div class="form-group input-form">
+                   <mat-form-field appearance="fill" class="field-form">
+                        <mat-label>Sex</mat-label>
+                        <input matInput
+                               type="text"
+                               formControlName="Sex"
+                               class="form-control"
+                               name="Sex"
+                               >
+                               <mat-error class="help-block" *ngIf="!authService.userForm.get('Sex').valid && authService.userForm.get('Sex').touched">Blank field</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-group input-form">
+                   <mat-form-field appearance="fill" class="field-form">
+                        <mat-label>State</mat-label>
+                        <input matInput
+                               type="text"
+                               formControlName="State"
+                               class="form-control"
+                               name="State"
+                               required>
+                                  <mat-error class="help-block" *ngIf="!authService.userForm.get('State').valid && authService.userForm.get('State').touched">Please enter a state</mat-error>
+                    </mat-form-field>
+                </div>
+                  <div class="form-group input-form">
+                   <mat-form-field appearance="fill" class="field-form">
+                        <mat-label>Email</mat-label>
+                        <input matInput
+                               type="email"
+                               formControlName="Email"
+                               class="form-control"
+                               name="Email"
+                               required>
+                                <mat-error class="help-block" *ngIf="!authService.userForm.get('Email').valid && authService.userForm.get('Email').touched">Please enter a valid email</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="action-div">
+                <button class="btn addbtn" (click)="onAddUser()" [disabled]="!registerForm.form.valid">{{btnState}}</button>
+                <button class="btn btn-danger" type="reset">Clear</button>
+            </div>
+      </form>
+  </div>
+
+
+</div>
